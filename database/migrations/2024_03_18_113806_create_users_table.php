@@ -20,16 +20,16 @@ class CreateUsersTable extends Migration
             $table->string('type');
             $table->string('photo')->nullable();
             $table->string('password');
-            $table->string('id_livreur');
+            $table->string('id_livreur')->nullable();
             $table->foreign('id_livreur')->references('id_livreur')->on('livreurs')->onDelete('cascade');
-             $table->string('id_suivi');
+             $table->string('id_suivi')->nullable();
              $table->foreign('id_suivi')->references('id_suivi')->on('suivie_livraisons')->onDelete('cascade');
-             $table->string('id_historique');
+             $table->string('id_historique')->nullable();
              $table->foreign('id_historique')->references('id_historique')->on('historiques')->onDelete('cascade');
            
             $table->rememberToken();
             $table->timestamp('email_verified_at')->nullable();
-            
+            $table->timestamps();
             
         });
     }
